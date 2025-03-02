@@ -8,9 +8,13 @@ function adicionarAmigo() {
     const nome = nomeInput.value.trim();
     
     if (nome) {
-        amigos.push(nome);
-        nomeInput.value = '';
-        atualizarListaAmigos();
+        if (!amigos.includes(nome)) {
+            amigos.push(nome);
+            nomeInput.value = '';
+            atualizarListaAmigos();
+        } else {
+            alert('Esse nome já foi adicionado.');
+        }
     } else {
         alert('Por favor, insira um nome válido.');
     }
@@ -69,7 +73,6 @@ function limparResultado() {
 
     listaResultado.innerHTML = '';
 }
-
 
 // Função para limpar a lista de amigos e sorteados
 function limparListaAmigos() {
